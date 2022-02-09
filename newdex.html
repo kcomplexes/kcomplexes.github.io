@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Observable Plot</title>
+  <style>
+    .parent {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 3px;
+      text-align: center;
+    }
+
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+    .div3 { grid-area: 2 / 1 / 3 / 2; }
+    .div4 { grid-area: 2 / 2 / 3 / 3; }
+    .div5 { grid-area: 3 / 1 / 4 / 2; }
+    .div6 { grid-area: 3 / 2 / 4 / 3; }
+    .div7 { grid-area: 4 / 1 / 5 / 2; }
+    .div8 { grid-area: 4 / 2 / 5 / 3; }
+    .div9 { grid-area: 5 / 1 / 6 / 2; }
+    .div10 { grid-area: 5 / 2 / 6 / 3; }
+    .div11 { grid-area: 6 / 1 / 7 / 2; }
+    .div12 { grid-area: 6 / 2 / 7 / 3; }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="parent">
+  <div class="div1 RN029016 container"> <b>RN029016</b></div>
+  <div class="div2 RN0000"> RN005352</div>
+  <div class="div3"> </div>
+  <div class="div4"> </div>
+  <div class="div5"> </div>
+  <div class="div6"> </div>
+  <div class="div7"> </div>
+  <div class="div8"> </div>
+  <div class="div9"> </div>
+  <div class="div10"> </div>
+  <div class="div11"> </div>
+  <div class="div12"> </div>
+</div>
+
+<script type="module">
+    import * as d3 from "https://cdn.skypack.dev/d3@7";
+    import * as Plot from "https://cdn.skypack.dev/@observablehq/plot@0.4";
+
+    d3.csv('data/rn029016.csv', d3.autoType).then((data) => {
+      document
+              .querySelector(".div1")
+              .appendChild(
+                      // document.body.appendChild(
+                      Plot.plot({
+                        width: 700,
+                        height: 300,
+                        //caption: "RN029016 Groundwater Levels",
+
+                        x: {
+                          label: null,
+                          //"Date →",
+                          tickFormat: d3.utcFormat("%Y"),
+                          nice: true,
+                          tickRotate: -45,
+                          ticks: 10,
+                          line: true
+                          // labelAnchor: "center"
+
+                        },
+                        y: {
+                          label: "Depth Below Ground (m)",
+                          grid: true,
+                          labelAnchor: "center",
+                          line: true
+                        },
+                        // color: {
+                        //     legend: true
+                        // },
+                        marks: [
+                          Plot.line(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            strokeWidth: 2,
+                            stroke: '#4e79a7'
+
+                          }),
+                          Plot.dot(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            fill: '#e15759',
+                          }),
+                          Plot.text(data, Plot.selectLast ({
+                            x: 'Timestamp',
+                            y: 'Value',
+                            textAnchor: "right",
+                            dx: 20,
+                            text: "Value"
+                          })),
+                        ],
+                      })
+              );
+    });
+
+    d3.csv('data/rn029016.csv', d3.autoType).then((data) => {
+      document
+              .querySelector(".div2")
+              .appendChild(
+                      // document.body.appendChild(
+                      Plot.plot({
+                        width: 700,
+                        height: 300,
+                        //caption: "RN029016 Groundwater Levels",
+
+                        x: {
+                          label: null,
+                          //"Date →",
+                          tickFormat: d3.utcFormat("%Y"),
+                          nice: true,
+                          tickRotate: -45,
+                          ticks: 10,
+                          line: true
+                          // labelAnchor: "center"
+
+                        },
+                        y: {
+                          label: "Depth Below Ground (m)",
+                          grid: true,
+                          labelAnchor: "center",
+                          line: true
+                        },
+                        // color: {
+                        //     legend: true
+                        // },
+                        marks: [
+                          Plot.line(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            strokeWidth: 2,
+                            stroke: '#4e79a7'
+
+                          }),
+                          Plot.dot(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            fill: '#e15759',
+                          }),
+                          Plot.text(data, Plot.selectLast ({
+                            x: 'Timestamp',
+                            y: 'Value',
+                            textAnchor: "right",
+                            dx: 20,
+                            text: "Value"
+                          })),
+                        ],
+                      })
+              );
+    });
+
+    d3.csv('data/rn029016.csv', d3.autoType).then((data) => {
+      document
+              .querySelector(".div3")
+              .appendChild(
+                      // document.body.appendChild(
+                      Plot.plot({
+                        width: 700,
+                        height: 300,
+                        //caption: "RN029016 Groundwater Levels",
+
+                        x: {
+                          label: null,
+                          //"Date →",
+                          tickFormat: d3.utcFormat("%Y"),
+                          nice: true,
+                          tickRotate: -45,
+                          ticks: 10,
+                          line: true
+                          // labelAnchor: "center"
+
+                        },
+                        y: {
+                          label: "Depth Below Ground (m)",
+                          grid: true,
+                          labelAnchor: "center",
+                          line: true
+                        },
+                        // color: {
+                        //     legend: true
+                        // },
+                        marks: [
+                          Plot.line(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            strokeWidth: 2,
+                            stroke: '#4e79a7'
+
+                          }),
+                          Plot.dot(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            fill: '#e15759',
+                          }),
+                          Plot.text(data, Plot.selectLast ({
+                            x: 'Timestamp',
+                            y: 'Value',
+                            textAnchor: "right",
+                            dx: 20,
+                            text: "Value"
+                          })),
+                        ],
+                      })
+              );
+    });
+
+    d3.csv('data/rn029016.csv', d3.autoType).then((data) => {
+      document
+              .querySelector(".div4")
+              .appendChild(
+                      // document.body.appendChild(
+                      Plot.plot({
+                        width: 700,
+                        height: 300,
+                        //caption: "RN029016 Groundwater Levels",
+
+                        x: {
+                          label: null,
+                          //"Date →",
+                          tickFormat: d3.utcFormat("%Y"),
+                          nice: true,
+                          tickRotate: -45,
+                          ticks: 10,
+                          line: true
+                          // labelAnchor: "center"
+
+                        },
+                        y: {
+                          label: "Depth Below Ground (m)",
+                          grid: true,
+                          labelAnchor: "center",
+                          line: true
+                        },
+                        // color: {
+                        //     legend: true
+                        // },
+                        marks: [
+                          Plot.line(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            strokeWidth: 2,
+                            stroke: '#4e79a7'
+
+                          }),
+                          Plot.dot(data, {
+                            x: 'Timestamp',
+                            y: 'Value',
+                            fill: '#e15759',
+                          }),
+                          Plot.text(data, Plot.selectLast ({
+                            x: 'Timestamp',
+                            y: 'Value',
+                            textAnchor: "right",
+                            dx: 20,
+                            text: "Value"
+                          })),
+                        ],
+                      })
+              );
+    });
+
+
+</script>
+
+</body>
+</html>
